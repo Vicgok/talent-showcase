@@ -1,16 +1,11 @@
 {
-  "functions": {
-    "dist/server/server.js": {
-      "runtime": "edge"
-    }
-  },
   "routes": [
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/server/server.js"
+      "dest": "/api/server"
     }
   ]
 }
