@@ -13,6 +13,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CursorTracker } from "@/components/CursorTracker";
 import { PERSON_JSONLD } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/react";
 
 const SITE_TITLE = "Vigneshwaraa K — Full-Stack AI Engineer | Freelance & Consulting";
 const SITE_DESC =
@@ -137,6 +138,7 @@ function RootComponent() {
         <SiteFooter />
       </div>
       <CursorTracker />
+      <Analytics />
     </QueryClientProvider>
   );
 }
