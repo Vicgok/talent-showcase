@@ -133,7 +133,7 @@ function HomePage() {
       <section className="bg-ink text-paper">
         <div className="mx-auto max-w-350 px-5 md:px-10 py-16 md:py-24">
           <Reveal>
-            <p className="font-label text-sm tracking-widest text-accent">03 / IMPACT</p>
+            <p className="font-label text-sm tracking-widest text-accent">02 / IMPACT</p>
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-4 font-display text-3xl md:text-5xl text-paper max-w-3xl">
@@ -166,7 +166,7 @@ function HomePage() {
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-7">
-              <SectionLabel number="02" label="SERVICES" />
+              <SectionLabel number="03" label="SERVICES" />
               <h2 className="mt-6 font-display text-4xl md:text-6xl leading-tight text-foreground">
                 The Work I <em>Do Best.</em>
               </h2>

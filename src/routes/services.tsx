@@ -90,7 +90,7 @@ function ServicesPage() {
     <>
       <section className="border-b border-foreground/15">
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
-          <SectionLabel number="02" label="SERVICES" />
+          <SectionLabel number="03" label="SERVICES" />
           <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-foreground max-w-5xl">
             The Work I <em className="text-accent">Do Best.</em>
           </h1>
