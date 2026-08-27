@@ -6,7 +6,22 @@ import { breadcrumb } from "@/lib/seo";
 
 const TITLE = "Expertise — AI/ML, Backend, Frontend & Cloud Stack | Vigneshwaraa K";
 const DESC =
-  "The stack I reach for: Agentic AI, LangChain, RAG, FastAPI, Spring Boot, React, Snowflake, AWS, GCP, Azure DevOps. GCP Associate Cloud Engineer certified.";
+  "The stack I reach for: Agentic AI, LangChain, RAG, FastAPI, Spring Boot, React, Snowflake, AWS, GCP, Azure DevOps. Google Cloud and Claude certifications included.";
+const GCP_CREDLY_URL = "https://www.credly.com/badges/441d5b5a-d058-48ed-9385-1d05786226f8";
+const CLAUDE_CREDLY_URL = "https://www.credly.com/badges/ce9d94f6-7916-452f-9fdb-bb90b720e53f";
+
+const certifications = [
+  {
+    name: "Google Cloud Associate Cloud Engineer",
+    href: GCP_CREDLY_URL,
+    ariaLabel: "View Google Cloud Associate Cloud Engineer credential on Credly",
+  },
+  {
+    name: "Claude Certified Architect - Foundations",
+    href: CLAUDE_CREDLY_URL,
+    ariaLabel: "View Claude Certified Architect - Foundations credential on Credly",
+  },
+] as const;
 
 interface Skill {
   name: string;
@@ -126,11 +141,22 @@ function ExpertisePage() {
           </div>
 
           <Reveal delay={320}>
-            <div className="mt-20 inline-flex items-center gap-3 border border-accent px-5 py-3">
-              <span className="font-label text-base tracking-widest text-foreground">
-                Google Cloud Associate Cloud Engineer
-              </span>
-              <span className="text-accent font-mono text-lg">✓</span>
+            <div className="mt-20 flex flex-col gap-4 md:max-w-3xl">
+              {certifications.map((certification) => (
+                <a
+                  key={certification.name}
+                  href={certification.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-between gap-4 border border-accent px-5 py-3 transition-colors hover:bg-accent hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  aria-label={certification.ariaLabel}
+                >
+                  <span className="font-label text-base tracking-widest text-foreground">
+                    {certification.name}
+                  </span>
+                  <span className="text-accent font-mono text-lg">✓</span>
+                </a>
+              ))}
             </div>
           </Reveal>
         </div>
