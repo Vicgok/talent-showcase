@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 
 const navLinks = [
+  { to: "/actlater", label: "Build in Public" },
   { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
   { to: "/expertise", label: "Expertise" },

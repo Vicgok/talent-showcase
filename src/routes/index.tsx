@@ -235,6 +235,50 @@ function HomePage() {
         </div>
       </section>
 
+      {/* BUILD IN PUBLIC */}
+      <section className="border-b border-foreground/15">
+        <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <SectionLabel number="05" label="BUILD IN PUBLIC" />
+            </div>
+
+            <div className="lg:col-span-8">
+              <Reveal>
+                <h2 className="max-w-4xl font-display text-4xl leading-tight text-foreground md:text-6xl">
+                  I&apos;m validating product ideas in public.
+                  <br />
+                  <em className="text-accent">ActLater is the first one.</em>
+                </h2>
+              </Reveal>
+
+              <Reveal delay={100}>
+                <p className="mt-6 max-w-3xl font-mono text-sm leading-7 text-foreground/70 md:text-base">
+                  ActLater is a lightweight product experiment focused on a simple problem: people
+                  save useful things across social apps, then can&apos;t find them again when they
+                  actually need them. I&apos;m using a small waitlist to validate the problem before
+                  building further.
+                </p>
+              </Reveal>
+
+              <Reveal delay={180}>
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <Link
+                    to="/actlater"
+                    className="bg-accent px-6 py-3.5 text-center font-label text-base tracking-widest text-ink transition-colors hover:bg-accent/85"
+                  >
+                    → View ActLater
+                  </Link>
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/55">
+                    Early access page with inline signup and no external form redirect.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ContactCTA />
     </>
   );
