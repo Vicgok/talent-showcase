@@ -34,3 +34,6 @@ dist-ssr
 
 # env files
 .env
+
+# Docs
+.ai-context/*
