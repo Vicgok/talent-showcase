@@ -248,26 +248,25 @@ function HomePage() {
                 <h2 className="max-w-4xl font-display text-4xl leading-tight text-foreground md:text-6xl">
                   I&apos;m validating product ideas in public.
                   <br />
-                  <em className="text-accent">ActLater is the first one.</em>
+                  <em className="text-accent">WhatToCook is the newest one.</em>
                 </h2>
               </Reveal>
 
               <Reveal delay={100}>
                 <p className="mt-6 max-w-3xl font-mono text-sm leading-7 text-foreground/70 md:text-base">
-                  ActLater is a lightweight product experiment focused on a simple problem: people
-                  save useful things across social apps, then can&apos;t find them again when they
-                  actually need them. I&apos;m using a small waitlist to validate the problem before
-                  building further.
+                  WhatToCook is a product experiment for the everyday question of what to make
+                  with the food already at home. I&apos;m using a small waitlist to validate the
+                  problem and let early users shape what gets built first.
                 </p>
               </Reveal>
 
               <Reveal delay={180}>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Link
-                    to="/actlater"
+                    to="/build-in-public"
                     className="bg-accent px-6 py-3.5 text-center font-label text-base tracking-widest text-ink transition-colors hover:bg-accent/85"
                   >
-                    → View ActLater
+                    → View the experiments
                   </Link>
                   <p className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/55">
                     Early access page with inline signup and no external form redirect.

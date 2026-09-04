@@ -10,10 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as WhattocookRouteImport } from './routes/whattocook'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BuildInPublicRouteImport } from './routes/build-in-public'
 import { Route as ActlaterRouteImport } from './routes/actlater'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -21,6 +23,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhattocookRoute = WhattocookRouteImport.update({
+  id: '/whattocook',
+  path: '/whattocook',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -43,6 +50,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuildInPublicRoute = BuildInPublicRouteImport.update({
+  id: '/build-in-public',
+  path: '/build-in-public',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ActlaterRoute = ActlaterRouteImport.update({
   id: '/actlater',
   path: '/actlater',
@@ -63,20 +75,24 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/actlater': typeof ActlaterRoute
+  '/build-in-public': typeof BuildInPublicRoute
   '/contact': typeof ContactRoute
   '/expertise': typeof ExpertiseRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/whattocook': typeof WhattocookRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/actlater': typeof ActlaterRoute
+  '/build-in-public': typeof BuildInPublicRoute
   '/contact': typeof ContactRoute
   '/expertise': typeof ExpertiseRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/whattocook': typeof WhattocookRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
@@ -84,10 +100,12 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/actlater': typeof ActlaterRoute
+  '/build-in-public': typeof BuildInPublicRoute
   '/contact': typeof ContactRoute
   '/expertise': typeof ExpertiseRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/whattocook': typeof WhattocookRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
@@ -96,30 +114,36 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/actlater'
+    | '/build-in-public'
     | '/contact'
     | '/expertise'
     | '/services'
     | '/sitemap.xml'
+    | '/whattocook'
     | '/work'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/actlater'
+    | '/build-in-public'
     | '/contact'
     | '/expertise'
     | '/services'
     | '/sitemap.xml'
+    | '/whattocook'
     | '/work'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/actlater'
+    | '/build-in-public'
     | '/contact'
     | '/expertise'
     | '/services'
     | '/sitemap.xml'
+    | '/whattocook'
     | '/work'
   fileRoutesById: FileRoutesById
 }
@@ -127,10 +151,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ActlaterRoute: typeof ActlaterRoute
+  BuildInPublicRoute: typeof BuildInPublicRoute
   ContactRoute: typeof ContactRoute
   ExpertiseRoute: typeof ExpertiseRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WhattocookRoute: typeof WhattocookRoute
   WorkRoute: typeof WorkRoute
 }
 
@@ -141,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/whattocook': {
+      id: '/whattocook'
+      path: '/whattocook'
+      fullPath: '/whattocook'
+      preLoaderRoute: typeof WhattocookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -171,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/build-in-public': {
+      id: '/build-in-public'
+      path: '/build-in-public'
+      fullPath: '/build-in-public'
+      preLoaderRoute: typeof BuildInPublicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/actlater': {
       id: '/actlater'
       path: '/actlater'
@@ -199,10 +239,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ActlaterRoute: ActlaterRoute,
+  BuildInPublicRoute: BuildInPublicRoute,
   ContactRoute: ContactRoute,
   ExpertiseRoute: ExpertiseRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WhattocookRoute: WhattocookRoute,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport

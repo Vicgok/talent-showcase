@@ -1,9 +1,11 @@
+const COPYRIGHT_YEAR = 2026;
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-foreground/15 bg-paper">
       <div className="mx-auto max-w-350 px-5 md:px-10 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <p className="font-label text-sm md:text-base tracking-widest text-foreground/80">
-          VIGNESHWARAA K · FULL-STACK AI ENGINEER · CHENNAI INDIA · © {new Date().getFullYear()}
+          VIGNESHWARAA K · FULL-STACK AI ENGINEER · CHENNAI INDIA · © {COPYRIGHT_YEAR}
         </p>
         <div className="flex gap-4">
           <a
