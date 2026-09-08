@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ChefHat, BookmarkCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { pageMetadata } from "@/lib/seo";
 
 const TITLE = "Build in Public — Product Experiments";
 const DESC = "Independent product experiments being built and validated in public.";
@@ -24,23 +25,18 @@ const projects = [
     title: "ActLater",
     description:
       "Find saved social posts when they become useful, instead of losing them in an endless list.",
-    details: ["Retrievable saved content", "Social-app problem validation", "Early-access waitlist"],
+    details: [
+      "Retrievable saved content",
+      "Social-app problem validation",
+      "Early-access waitlist",
+    ],
     icon: BookmarkCheck,
   },
 ] as const;
 
 export const Route = createFileRoute("/build-in-public")({
   component: BuildInPublicPage,
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/build-in-public" },
-    ],
-    links: [{ rel: "canonical", href: "/build-in-public" }],
-  }),
+  head: () => pageMetadata({ title: TITLE, description: DESC, path: "/build-in-public" }),
 });
 
 function BuildInPublicPage() {
@@ -84,16 +80,25 @@ function BuildInPublicPage() {
                     <h2 className="mt-14 font-display text-4xl leading-tight md:text-5xl">
                       {project.title}
                     </h2>
-                    <p className="mt-5 max-w-md leading-7 text-foreground/72">{project.description}</p>
+                    <p className="mt-5 max-w-md leading-7 text-foreground/72">
+                      {project.description}
+                    </p>
                     <ul className="mt-10 space-y-3 border-t border-foreground/12 pt-5">
                       {project.details.map((detail) => (
-                        <li key={detail} className="font-mono text-xs uppercase tracking-[0.12em] text-foreground/62">
+                        <li
+                          key={detail}
+                          className="font-mono text-xs uppercase tracking-[0.12em] text-foreground/62"
+                        >
                           {detail}
                         </li>
                       ))}
                     </ul>
                     <span className="mt-10 flex items-center gap-2 font-label text-base tracking-widest">
-                      View experiment <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      View experiment{" "}
+                      <ArrowUpRight
+                        size={18}
+                        className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
                     </span>
                   </Link>
                 </Reveal>

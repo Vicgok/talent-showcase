@@ -1,0 +1,15 @@
+{
+  "name": "Vigneshwaraa K — Full Stack & Agentic AI Engineer",
+  "short_name": "Vigneshwaraa K",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F5F0E8",
+  "theme_color": "#F5F0E8",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}

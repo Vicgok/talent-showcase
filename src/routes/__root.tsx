@@ -12,12 +12,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CursorTracker } from "@/components/CursorTracker";
-import { PERSON_JSONLD } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/react";
-
-const SITE_TITLE = "Vigneshwaraa K — Full-Stack AI Engineer | Freelance & Consulting";
-const SITE_DESC =
-  "Full-Stack AI Engineer in Chennai with 6+ years shipping production AI systems — FastAPI, React, RAG pipelines, agentic AI. Available for freelance and consulting.";
 
 function NotFoundComponent() {
   return (
@@ -76,16 +71,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: SITE_TITLE },
-      { name: "description", content: SITE_DESC },
       { name: "author", content: "Vigneshwaraa K" },
-      { property: "og:site_name", content: "Vigneshwaraa K" },
-      { property: "og:type", content: "website" },
-      { property: "og:title", content: SITE_TITLE },
-      { property: "og:description", content: SITE_DESC },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: SITE_TITLE },
-      { name: "twitter:description", content: SITE_DESC },
       { name: "theme-color", content: "#F5F0E8" },
     ],
     links: [
@@ -97,12 +83,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400;1,700;1,800&family=IBM+Plex+Mono:wght@300;400;500;600&family=Bebas+Neue&display=swap",
       },
       { rel: "icon", href: "/favicon.png" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(PERSON_JSONLD),
-      },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
   shellComponent: RootShell,

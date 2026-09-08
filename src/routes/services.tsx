@@ -4,11 +4,11 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { PullQuote } from "@/components/PullQuote";
 import { Reveal } from "@/components/Reveal";
 import { ContactCTA } from "@/components/ContactCTA";
-import { breadcrumb } from "@/lib/seo";
+import { breadcrumb, pageMetadata } from "@/lib/seo";
 
-const TITLE = "Services — Freelance AI Engineering, FastAPI, RAG & Agentic AI";
+const TITLE = "Services — AI Engineering, FastAPI, RAG & Agentic AI";
 const DESC =
-  "Freelance AI engineering services: RAG systems, FastAPI backends, React SaaS portals, agentic workflow automation, cloud-native deployment, and GenAI R&D consulting.";
+  "AI engineering capabilities: RAG systems, FastAPI backends, React SaaS portals, agentic workflow automation, cloud-native deployment, and GenAI R&D.";
 
 const services = [
   {
@@ -21,7 +21,7 @@ const services = [
     number: "02",
     title: "FastAPI Backend Engineering",
     description:
-      "Production-grade APIs that handle millions of records. Async, cached, Snowflake / Postgres-ready, and instrumented for the long haul.",
+      "Production-grade APIs and middleware for high-volume workflows. AsyncIO, caching, pagination, and database optimization built for the long haul.",
   },
   {
     number: "03",
@@ -33,7 +33,7 @@ const services = [
     number: "04",
     title: "Agentic AI Workflow Automation",
     description:
-      "AI agents that replace manual processes — Azure DevOps, MLOps, data pipelines, internal tooling. Real automation, not chatbots that pretend.",
+      "Multi-agent AI systems for DevOps workflows, enterprise integrations, intelligent task orchestration, and decision support.",
   },
   {
     number: "05",
@@ -49,34 +49,11 @@ const services = [
   },
 ];
 
-const PROFESSIONAL_SERVICE_JSONLD = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Vigneshwaraa K — AI Engineering Consulting",
-  description: DESC,
-  url: "/services",
-  areaServed: "Worldwide",
-  provider: {
-    "@type": "Person",
-    name: "Vigneshwaraa K",
-    jobTitle: "Full-Stack AI Engineer",
-  },
-  serviceType: services.map((s) => s.title),
-};
-
 export const Route = createFileRoute("/services")({
   component: ServicesPage,
   head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/services" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
+    ...pageMetadata({ title: TITLE, description: DESC, path: "/services" }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(PROFESSIONAL_SERVICE_JSONLD) },
       {
         type: "application/ld+json",
         children: JSON.stringify(breadcrumb("Services", "/services")),
@@ -95,8 +72,8 @@ function ServicesPage() {
             The Work I <em className="text-accent">Do Best.</em>
           </h1>
           <p className="mt-8 font-mono text-base md:text-lg text-foreground/70 max-w-3xl">
-            Six engagements I take on as a freelancer and consultant. Each one is the kind of work
-            I&rsquo;ve already shipped at Deloitte, Accenture, TCS, and Cognizant.
+            Six areas of engineering focus, each grounded in work I&rsquo;ve shipped at Deloitte,
+            Accenture, TCS, and Cognizant.
           </p>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

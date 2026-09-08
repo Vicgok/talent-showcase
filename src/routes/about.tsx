@@ -1,24 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 import { ContactCTA } from "@/components/ContactCTA";
-import { breadcrumb } from "@/lib/seo";
+import { breadcrumb, pageMetadata } from "@/lib/seo";
 
-const TITLE = "About — Vigneshwaraa K · Full-Stack AI Engineer in Chennai";
+const TITLE = "About — Vigneshwaraa K · Full-Stack & Agentic AI Engineer in Chennai";
 const DESC =
-  "Vigneshwaraa K — Full-Stack AI Engineer based in Chennai, India. 6 years building production AI, FastAPI, and React systems for Deloitte, Accenture, TCS, Cognizant.";
+  "Vigneshwaraa K is a full-stack and agentic AI engineer based in Chennai, India, with 6.5+ years building production AI, FastAPI, and React systems for Deloitte, Accenture, TCS, and Cognizant.";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
+    ...pageMetadata({ title: TITLE, description: DESC, path: "/about" }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(breadcrumb("About", "/about")) },
     ],
@@ -55,7 +48,7 @@ function AboutPage() {
               <div className="space-y-7 font-mono text-base md:text-lg leading-relaxed text-foreground/85">
                 <p>
                   I&rsquo;m <span className="text-foreground">Vigneshwaraa</span> — a Full-Stack AI
-                  Engineer based in Chennai, India, with 6 years of experience turning complex
+                  Engineer based in Chennai, India, with 6.5+ years of experience turning complex
                   enterprise problems into scalable, production-grade systems.
                 </p>
                 <p>
@@ -65,9 +58,10 @@ function AboutPage() {
                   RAG pipeline that finally makes your documents useful.
                 </p>
                 <p>
-                  Currently a <span className="text-foreground">Consultant at Deloitte</span>.
-                  Previously at Accenture, TCS, and Cognizant. Open to freelance engagements where
-                  the problem is hard and the impact is real.
+                  Currently a{" "}
+                  <span className="text-foreground">Software Engineer II at Deloitte</span>.
+                  Previously at Accenture, TCS, and Cognizant. I&rsquo;m drawn to difficult problems
+                  where scalable engineering and practical AI can make a measurable difference.
                 </p>
               </div>
 
@@ -80,6 +74,20 @@ function AboutPage() {
                   Technology
                 </li>
               </ul>
+
+              <div className="mt-10 border-t border-foreground/15 pt-8">
+                <p className="font-label text-sm tracking-widest text-accent">RECOGNITION</p>
+                <p className="mt-3 font-mono text-sm leading-7 text-foreground/80">
+                  Top Performer &amp; Impact Performer at Deloitte, plus 4th place nationally in the
+                  Deloitte Agentic AI Hackathon for an enterprise multi-agent workflow solution.
+                </p>
+                <Link
+                  to="/resume"
+                  className="mt-5 inline-block font-label text-sm tracking-widest text-foreground transition-colors hover:text-accent"
+                >
+                  View full resume →
+                </Link>
+              </div>
             </Reveal>
           </div>
         </div>

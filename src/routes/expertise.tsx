@@ -2,11 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 import { ContactCTA } from "@/components/ContactCTA";
-import { breadcrumb } from "@/lib/seo";
+import { breadcrumb, pageMetadata } from "@/lib/seo";
 
 const TITLE = "Expertise — AI/ML, Backend, Frontend & Cloud Stack | Vigneshwaraa K";
 const DESC =
-  "The stack I reach for: Agentic AI, LangChain, RAG, FastAPI, Spring Boot, React, Snowflake, AWS, GCP, Azure DevOps. Google Cloud and Claude certifications included.";
+  "The stack I reach for: Agentic AI, LangChain, Google ADK, RAG, FastAPI, Spring Boot, React, AWS, GCP, and Azure DevOps. Google Cloud and Claude certifications included.";
 const GCP_CREDLY_URL = "https://www.credly.com/badges/441d5b5a-d058-48ed-9385-1d05786226f8";
 const CLAUDE_CREDLY_URL = "https://www.credly.com/badges/ce9d94f6-7916-452f-9fdb-bb90b720e53f";
 
@@ -31,11 +31,12 @@ interface Skill {
 const ai: Skill[] = [
   { name: "Agentic AI", weight: 4 },
   { name: "LangChain", weight: 4 },
+  { name: "Google ADK", weight: 3 },
   { name: "RAG Pipelines", weight: 4 },
-  { name: "LLM Systems", weight: 3 },
-  { name: "GenAI", weight: 3 },
-  { name: "MLOps", weight: 2 },
-  { name: "Vector Retrieval", weight: 2 },
+  { name: "LLM Orchestration", weight: 3 },
+  { name: "MCP", weight: 2 },
+  { name: "Vector Databases", weight: 2 },
+  { name: "Azure OpenAI", weight: 2 },
 ];
 const backend: Skill[] = [
   { name: "FastAPI", weight: 4 },
@@ -49,13 +50,14 @@ const backend: Skill[] = [
 const frontendCloud: Skill[] = [
   { name: "React.js", weight: 4 },
   { name: "Angular", weight: 2 },
-  { name: "Snowflake", weight: 3 },
   { name: "Docker", weight: 3 },
   { name: "AWS", weight: 3 },
   { name: "GCP", weight: 3 },
   { name: "Azure DevOps", weight: 3 },
   { name: "MongoDB", weight: 2 },
   { name: "PostgreSQL", weight: 2 },
+  { name: "MySQL", weight: 2 },
+  { name: "Redis", weight: 2 },
 ];
 
 const sizeFor: Record<Skill["weight"], string> = {
@@ -80,14 +82,7 @@ function Cloud({ items }: { items: Skill[] }) {
 export const Route = createFileRoute("/expertise")({
   component: ExpertisePage,
   head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/expertise" },
-    ],
-    links: [{ rel: "canonical", href: "/expertise" }],
+    ...pageMetadata({ title: TITLE, description: DESC, path: "/expertise" }),
     scripts: [
       {
         type: "application/ld+json",

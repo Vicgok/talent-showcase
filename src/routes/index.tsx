@@ -5,22 +5,21 @@ import { CountUp } from "@/components/CountUp";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Reveal } from "@/components/Reveal";
 import { ContactCTA } from "@/components/ContactCTA";
+import { pageMetadata, PERSON_JSONLD, PROFILE_PAGE_JSONLD, WEBSITE_JSONLD } from "@/lib/seo";
 
-const TITLE = "Vigneshwaraa K — Full-Stack AI Engineer | FastAPI · React · Agentic AI";
+const TITLE = "Vigneshwaraa K | Full Stack & Agentic AI Engineer";
 const DESC =
-  "Full-Stack AI Engineer in Chennai. 6+ years building production AI systems — FastAPI, React, RAG pipelines, agentic AI. Freelance and consulting available.";
+  "Full Stack and Agentic AI Engineer with 6.5+ years of experience building scalable applications using React, TypeScript, Python, FastAPI, LangChain, RAG, multi-agent systems, cloud platforms, and distributed architectures.";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
   head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/" },
+    ...pageMetadata({ title: TITLE, description: DESC, path: "/", type: "profile" }),
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(PERSON_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(WEBSITE_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(PROFILE_PAGE_JSONLD) },
     ],
-    links: [{ rel: "canonical", href: "/" }],
   }),
 });
 
@@ -35,13 +34,13 @@ const teaserServices = [
     number: "02",
     title: "FastAPI Backend Engineering",
     description:
-      "Production-grade APIs that handle millions of records. Async, cached, Snowflake / Postgres-ready.",
+      "Production-grade APIs and middleware for high-volume workflows. AsyncIO, caching, pagination, and database optimization built in.",
   },
   {
     number: "03",
     title: "Agentic AI Workflow Automation",
     description:
-      "AI agents that replace manual processes — Azure DevOps, MLOps, data pipelines, internal tooling.",
+      "Multi-agent AI systems for enterprise workflows, DevOps automation, intelligent task orchestration, and decision support.",
   },
 ];
 
@@ -57,7 +56,7 @@ function HomePage() {
             <div className="lg:col-span-7">
               <Reveal>
                 <p className="font-mono text-xs md:text-sm uppercase tracking-[0.18em] text-foreground/70">
-                  Full-Stack AI Engineer · Chennai · Available for Freelance
+                  Full Stack &amp; Agentic AI Engineer · Chennai · 6.5+ Years
                 </p>
               </Reveal>
 
@@ -73,7 +72,7 @@ function HomePage() {
 
               <Reveal delay={220}>
                 <p className="mt-8 font-mono text-base md:text-lg text-foreground/70">
-                  Production AI · Full-Stack Architecture · Cloud-Native Systems
+                  React · TypeScript · Python · FastAPI · LangChain · RAG · Multi-Agent Systems
                 </p>
               </Reveal>
 
@@ -196,14 +195,14 @@ function HomePage() {
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
           <SectionLabel number="04" label="WORK" />
           <h2 className="mt-6 font-display text-4xl md:text-6xl leading-tight text-foreground max-w-4xl">
-            6 Years. 4 Companies.
+            6.5+ Years. 4 Companies.
             <br />
             <em className="text-accent">Real Results.</em>
           </h2>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { y: "2025 — Now", c: "Deloitte", r: "Consultant" },
+              { y: "2025 — Present", c: "Deloitte", r: "Software Engineer II" },
               { y: "2024 — 2025", c: "Accenture", r: "Senior Analyst" },
               { y: "2022 — 2024", c: "TCS", r: "Systems Engineer" },
               { y: "2020 — 2022", c: "Cognizant", r: "Programmer Analyst" },
@@ -254,9 +253,9 @@ function HomePage() {
 
               <Reveal delay={100}>
                 <p className="mt-6 max-w-3xl font-mono text-sm leading-7 text-foreground/70 md:text-base">
-                  WhatToCook is a product experiment for the everyday question of what to make
-                  with the food already at home. I&apos;m using a small waitlist to validate the
-                  problem and let early users shape what gets built first.
+                  WhatToCook is a product experiment for the everyday question of what to make with
+                  the food already at home. I&apos;m using a small waitlist to validate the problem
+                  and let early users shape what gets built first.
                 </p>
               </Reveal>
 

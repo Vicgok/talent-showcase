@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import { pageMetadata } from "@/lib/seo";
 
 const TITLE = "ActLater — Early Access";
 const DESC =
@@ -55,18 +56,7 @@ const submitActLaterWaitlist = createServerFn({ method: "POST" })
 export const Route = createFileRoute("/actlater")({
   validateSearch: (search) => routeSearchSchema.parse(search),
   component: ActLaterPage,
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/actlater" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESC },
-    ],
-    links: [{ rel: "canonical", href: "/actlater" }],
-  }),
+  head: () => pageMetadata({ title: TITLE, description: DESC, path: "/actlater" }),
 });
 
 function ActLaterPage() {

@@ -3,47 +3,48 @@ import { SectionLabel } from "@/components/SectionLabel";
 import { TimelineEntry } from "@/components/TimelineEntry";
 import { Reveal } from "@/components/Reveal";
 import { ContactCTA } from "@/components/ContactCTA";
-import { breadcrumb } from "@/lib/seo";
+import { breadcrumb, pageMetadata } from "@/lib/seo";
 
 const TITLE = "Selected Work — Vigneshwaraa K · Deloitte, Accenture, TCS, Cognizant";
 const DESC =
-  "Six years of full-stack AI engineering across Deloitte, Accenture, TCS, and Cognizant. Agentic AI, RAG, FastAPI, React — with measurable impact.";
+  "6.5+ years of full-stack and agentic AI engineering across Deloitte, Accenture, TCS, and Cognizant. RAG, FastAPI, React, distributed systems, and measurable impact.";
 
 const entries = [
   {
-    years: "2025 — Present",
+    years: "Sep 2025 — Present",
     company: "Deloitte",
-    role: "Consultant",
+    role: "Software Engineer II",
     achievements: [
       "Built an Agentic AI system automating Azure DevOps workflows → <strong>60% less manual effort, 40% faster deployments</strong>",
       "SaaS portal for millions of records using React virtualization → <strong>45% frontend performance boost</strong>",
-      "FastAPI + Snowflake services with async processing → <strong>55% API latency reduction</strong>",
+      "FastAPI middleware and microservices with AsyncIO, caching, pagination, and database optimization → <strong>55% API latency reduction</strong>",
+      "<strong>4th place nationally</strong> in Deloitte's Agentic AI Hackathon for an enterprise multi-agent workflow solution",
     ],
-    tags: ["Agentic AI", "FastAPI", "React", "Snowflake", "Azure DevOps"],
+    tags: ["Multi-Agent AI", "LangChain", "RAG", "FastAPI", "React", "Azure DevOps"],
   },
   {
-    years: "2024 — 2025",
+    years: "Mar 2024 — Sep 2025",
     company: "Accenture",
     role: "Senior Analyst",
     achievements: [
-      "GenAI-enabled MLOps platform with LLM features → <strong>35% better data insights</strong>",
-      "Spring Boot + Flask microservices built for enterprise scale",
+      "Node.js, Flask, and Spring Boot middleware services for enterprise REST API and microservice communication",
       "MongoDB / MySQL optimization → <strong>40% faster API responses</strong>",
     ],
-    tags: ["Spring Boot", "Flask", "GenAI", "MLOps", "React"],
+    tags: ["Node.js", "Spring Boot", "Flask", "MongoDB", "MySQL"],
   },
   {
-    years: "2022 — 2024",
+    years: "Sep 2022 — Mar 2024",
     company: "TCS",
     role: "Systems Engineer",
     achievements: [
-      "RAG-powered AI platforms with MERN + vector retrieval → <strong>35% better AI accuracy</strong>",
-      "Docker, AWS Lambda, S3 cloud-native deployments",
+      "React optimization, caching, and efficient data processing → <strong>25% faster page loads</strong>",
+      "RAG-powered AI applications with vector retrieval and enterprise data sources → <strong>35% better AI-response accuracy</strong>",
+      "JWT authentication, Salesforce integrations, and Docker deployments on AWS Lambda and Amazon S3",
     ],
-    tags: ["RAG", "LangChain", "MERN", "AWS", "Docker"],
+    tags: ["RAG", "React", "Spring Boot", "Salesforce", "AWS", "Docker"],
   },
   {
-    years: "2020 — 2022",
+    years: "Aug 2020 — Aug 2022",
     company: "Cognizant",
     role: "Programmer Analyst",
     achievements: [
@@ -57,14 +58,7 @@ const entries = [
 export const Route = createFileRoute("/work")({
   component: WorkPage,
   head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/work" },
-    ],
-    links: [{ rel: "canonical", href: "/work" }],
+    ...pageMetadata({ title: TITLE, description: DESC, path: "/work" }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(breadcrumb("Work", "/work")) },
     ],
@@ -78,7 +72,7 @@ function WorkPage() {
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
           <SectionLabel number="04" label="WORK" />
           <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-foreground max-w-5xl">
-            6 Years. 4 Companies.
+            6.5+ Years. 4 Companies.
             <br />
             <em className="text-accent">Real Results.</em>
           </h1>
