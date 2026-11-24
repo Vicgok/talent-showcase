@@ -1,10 +1,18 @@
-export function ContactCTA({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) {
+export function ContactCTA({
+  headingLevel = 2,
+  sectionNumber = "08",
+}: {
+  headingLevel?: 1 | 2;
+  sectionNumber?: string;
+}) {
   const Heading = headingLevel === 1 ? "h1" : "h2";
 
   return (
     <section className="bg-ink text-paper">
       <div className="mx-auto max-w-350 px-5 md:px-10 py-24 md:py-32 text-center">
-        <p className="font-label text-sm md:text-base tracking-widest text-accent">07 / CONTACT</p>
+        <p className="font-label text-sm md:text-base tracking-widest text-accent">
+          {sectionNumber} / CONTACT
+        </p>
         <Heading className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-paper">
           Let&rsquo;s Build
           <br />

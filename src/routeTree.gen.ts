@@ -20,6 +20,7 @@ import { Route as BuildInPublicRouteImport } from './routes/build-in-public'
 import { Route as ActlaterRouteImport } from './routes/actlater'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsMuaflowRouteImport } from './routes/projects.muaflow'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
@@ -76,6 +77,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsMuaflowRoute = ProjectsMuaflowRouteImport.update({
+  id: '/projects/muaflow',
+  path: '/projects/muaflow',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/whattocook': typeof WhattocookRoute
   '/work': typeof WorkRoute
+  '/projects/muaflow': typeof ProjectsMuaflowRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/whattocook': typeof WhattocookRoute
   '/work': typeof WorkRoute
+  '/projects/muaflow': typeof ProjectsMuaflowRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/whattocook': typeof WhattocookRoute
   '/work': typeof WorkRoute
+  '/projects/muaflow': typeof ProjectsMuaflowRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/whattocook'
     | '/work'
+    | '/projects/muaflow'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/whattocook'
     | '/work'
+    | '/projects/muaflow'
   id:
     | '__root__'
     | '/'
@@ -157,6 +168,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/whattocook'
     | '/work'
+    | '/projects/muaflow'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +183,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WhattocookRoute: typeof WhattocookRoute
   WorkRoute: typeof WorkRoute
+  ProjectsMuaflowRoute: typeof ProjectsMuaflowRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -252,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/muaflow': {
+      id: '/projects/muaflow'
+      path: '/projects/muaflow'
+      fullPath: '/projects/muaflow'
+      preLoaderRoute: typeof ProjectsMuaflowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -267,6 +287,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WhattocookRoute: WhattocookRoute,
   WorkRoute: WorkRoute,
+  ProjectsMuaflowRoute: ProjectsMuaflowRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 
 const navLinks = [
+  { to: "/projects/muaflow", label: "Featured Project" },
   { to: "/build-in-public", label: "Build in Public" },
   { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
   { to: "/expertise", label: "Expertise" },
   { to: "/about", label: "Story" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -20,7 +20,7 @@ export function SiteHeader() {
           VIGNESHWARAA K
         </Link>
 
-        <nav className="hidden md:flex items-center gap-7" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-5" aria-label="Primary">
           {navLinks.map((l) => (
             <Link
               key={l.to}
@@ -46,8 +46,9 @@ export function SiteHeader() {
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((s) => !s)}
-          className="md:hidden font-label text-lg tracking-widest text-foreground"
+          className="lg:hidden min-h-11 min-w-11 font-label text-lg tracking-widest text-foreground"
         >
           {open ? "Close" : "Menu"}
         </button>
@@ -55,8 +56,9 @@ export function SiteHeader() {
 
       {open && (
         <nav
-          className="md:hidden border-t border-foreground/15 bg-paper px-5 py-4"
+          className="lg:hidden border-t border-foreground/15 bg-paper px-5 py-4"
           aria-label="Mobile"
+          id="mobile-navigation"
         >
           <ul className="flex flex-col gap-3">
             {navLinks.map((l) => (
@@ -64,7 +66,7 @@ export function SiteHeader() {
                 <Link
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className="font-label text-lg tracking-widest text-foreground"
+                  className="flex min-h-11 items-center font-label text-lg tracking-widest text-foreground"
                 >
                   {l.label}
                 </Link>

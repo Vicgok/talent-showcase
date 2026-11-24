@@ -70,7 +70,7 @@ function WorkPage() {
     <>
       <section className="border-b border-foreground/15">
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
-          <SectionLabel number="04" label="WORK" />
+          <SectionLabel number="05" label="WORK" />
           <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-foreground max-w-5xl">
             6.5+ Years. 4 Companies.
             <br />
