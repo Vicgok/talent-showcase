@@ -4,12 +4,14 @@ import { StatBlock } from "@/components/StatBlock";
 import { CountUp } from "@/components/CountUp";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Reveal } from "@/components/Reveal";
+import { MUAFlowFeature, MUAFlowSpotlight } from "@/components/MUAFlowFeature";
+import { SkillsCloud } from "@/components/SkillsCloud";
 import { ContactCTA } from "@/components/ContactCTA";
 import { pageMetadata, PERSON_JSONLD, PROFILE_PAGE_JSONLD, WEBSITE_JSONLD } from "@/lib/seo";
 
-const TITLE = "Vigneshwaraa K | Full Stack & Agentic AI Engineer";
+const TITLE = "Vigneshwaraa K | SaaS Product & Agentic AI Engineer";
 const DESC =
-  "Full Stack and Agentic AI Engineer with 6.5+ years of experience building scalable applications using React, TypeScript, Python, FastAPI, LangChain, RAG, multi-agent systems, cloud platforms, and distributed architectures.";
+  "Full-stack SaaS product engineering, secure backends, cloud and Agentic AI. Explore MUAFlow, an independently designed and engineered mobile-first product.";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -26,9 +28,9 @@ export const Route = createFileRoute("/")({
 const teaserServices = [
   {
     number: "01",
-    title: "AI Integration & RAG Systems",
+    title: "End-to-end SaaS Development",
     description:
-      "Connect your product to LLMs. Build retrieval pipelines, chatbots, and document intelligence on your existing stack.",
+      "Product discovery, responsive interfaces, secure data architecture and deployment. From the first workflow to a working SaaS platform.",
   },
   {
     number: "02",
@@ -61,10 +63,10 @@ function HomePage() {
               </Reveal>
 
               <Reveal delay={120}>
-                <h1 className="mt-6 font-display text-[44px] sm:text-6xl md:text-7xl lg:text-[96px] leading-[0.95] tracking-tight text-foreground">
-                  I Engineer
+                <h1 className="mt-6 font-display text-[clamp(36px,6.5vw,96px)] leading-[0.95] tracking-tight text-foreground">
+                  I Build
                   <br />
-                  AI Systems
+                  Digital Products.
                   <br />
                   <em className="text-accent">Built to Scale.</em>
                 </h1>
@@ -72,7 +74,8 @@ function HomePage() {
 
               <Reveal delay={220}>
                 <p className="mt-8 font-mono text-base md:text-lg text-foreground/70">
-                  React · TypeScript · Python · FastAPI · LangChain · RAG · Multi-Agent Systems
+                  From product ideas to working SaaS platforms. Full-stack engineering, product UX,
+                  secure backends, cloud and Agentic AI systems.
                 </p>
               </Reveal>
 
@@ -85,7 +88,7 @@ function HomePage() {
                     → Start a Project
                   </Link>
                   <Link
-                    to="/work"
+                    to="/projects/muaflow"
                     className="border border-foreground/60 text-foreground px-6 py-3.5 font-label text-base tracking-widest text-center hover:bg-foreground hover:text-paper transition-colors"
                   >
                     View My Work
@@ -96,50 +99,30 @@ function HomePage() {
 
             <div className="lg:col-span-5">
               <Reveal delay={150}>
-                <div className="border-l-2 border-accent pl-6 md:pl-8 space-y-10">
-                  <div>
-                    {/* <div className="font-display italic text-6xl md:text-7xl text-foreground leading-none">
-                      6<span className="text-accent">+</span>
-                    </div>
-                    <div className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/70">
-                      Years Building Enterprise AI
-                    </div> */}
-                  </div>
-                  <div>
-                    {/* <div className="font-display italic text-6xl md:text-7xl text-foreground leading-none">
-                      <CountUp to={55} suffix="%" />
-                    </div>
-                    <div className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/70">
-                      API Latency Reduced
-                    </div> */}
-                  </div>
-                  <div>
-                    {/* <div className="font-display italic text-6xl md:text-7xl text-foreground leading-none">
-                      4<span className="font-mono text-3xl align-top">th</span>
-                    </div> */}
-                    {/* <div className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/70">
-                      Nationally · Deloitte AI Hackathon
-                    </div> */}
-                  </div>
-                </div>
+                <MUAFlowSpotlight />
               </Reveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* IMPACT STRIP — inverted */}
-      <section className="bg-ink text-paper">
+      <MUAFlowFeature />
+
+      {/* Established enterprise impact */}
+      <section className="border-b border-foreground/15">
         <div className="mx-auto max-w-350 px-5 md:px-10 py-16 md:py-24">
           <Reveal>
-            <p className="font-label text-sm tracking-widest text-accent">02 / IMPACT</p>
+            <p className="font-label text-sm tracking-widest text-accent">03 / IMPACT</p>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="mt-4 font-display text-3xl md:text-5xl text-paper max-w-3xl">
+            <h2 className="mt-4 font-display text-3xl md:text-5xl text-foreground max-w-3xl">
               Numbers from <em className="text-accent">real production systems.</em>
             </h2>
           </Reveal>
 
+          <p className="mt-6 font-mono text-sm text-foreground/70">
+            Established enterprise achievements, separate from MUAFlow product outcomes.
+          </p>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6">
             {[
               { v: 60, label: "Manual Effort", sub: "Cut by Agentic AI" },
@@ -149,7 +132,6 @@ function HomePage() {
             ].map((s, i) => (
               <Reveal key={s.label} delay={i * 80}>
                 <StatBlock
-                  inverted
                   value={<CountUp to={s.v} suffix="%" />}
                   label={s.label}
                   sublabel={s.sub}
@@ -165,7 +147,7 @@ function HomePage() {
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-7">
-              <SectionLabel number="03" label="SERVICES" />
+              <SectionLabel number="04" label="SERVICES" />
               <h2 className="mt-6 font-display text-4xl md:text-6xl leading-tight text-foreground">
                 The Work I <em>Do Best.</em>
               </h2>
@@ -193,7 +175,7 @@ function HomePage() {
       {/* WORK TEASER */}
       <section className="border-b border-foreground/15">
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
-          <SectionLabel number="04" label="WORK" />
+          <SectionLabel number="05" label="WORK" />
           <h2 className="mt-6 font-display text-4xl md:text-6xl leading-tight text-foreground max-w-4xl">
             6.5+ Years. 4 Companies.
             <br />
@@ -234,12 +216,25 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="border-b border-foreground/15">
+        <div className="project-wrap">
+          <SectionLabel number="06" label="EXPERTISE" />
+          <h2 className="mt-6 font-display text-4xl md:text-6xl">
+            The Stack I <em>Reach For.</em>
+          </h2>
+          <SkillsCloud />
+          <Link to="/expertise" className="project-link mt-8">
+            Explore expertise &amp; certifications ↗
+          </Link>
+        </div>
+      </section>
+
       {/* BUILD IN PUBLIC */}
       <section className="border-b border-foreground/15">
         <div className="mx-auto max-w-350 px-5 md:px-10 py-20 md:py-28">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <SectionLabel number="05" label="BUILD IN PUBLIC" />
+              <SectionLabel number="07" label="BUILD IN PUBLIC" />
             </div>
 
             <div className="lg:col-span-8">
@@ -277,7 +272,7 @@ function HomePage() {
         </div>
       </section>
 
-      <ContactCTA />
+      <ContactCTA sectionNumber="08" />
     </>
   );
 }

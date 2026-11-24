@@ -55,7 +55,7 @@ export const PERSON_JSONLD = {
   url: SITE_URL,
   jobTitle: "Full Stack & Agentic AI Engineer",
   description:
-    "Full Stack and Agentic AI Engineer with 6.5+ years building scalable enterprise applications, production LLM systems, FastAPI services, and React platforms.",
+    "Full Stack and Agentic AI Engineer with 6.5+ years building SaaS products, scalable enterprise applications, production LLM systems and secure backends. Creator of MUAFlow.",
   sameAs: ["https://www.linkedin.com/in/vigneshwaraak/", "https://github.com/Vicgok"],
   address: {
     "@type": "PostalAddress",
@@ -69,6 +69,11 @@ export const PERSON_JSONLD = {
   knowsAbout: [
     "React.js",
     "TypeScript",
+    "SaaS Product Engineering",
+    "Supabase",
+    "PostgreSQL",
+    "Progressive Web Apps",
+    "Row-Level Security",
     "JavaScript",
     "Python",
     "FastAPI",
